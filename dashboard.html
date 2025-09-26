@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Reporting | Ty Spanbauer</title>
+  <style>
+    :root { --bg:#111; --fg:#fff; --muted:#aaa; --active:#76c7ff; }
+    .site-header{position:sticky;top:0;z-index:999;background:var(--bg);border-bottom:1px solid #222}
+    .site-header .wrap{max-width:1000px;margin:auto;display:flex;align-items:center;gap:20px;padding:12px 16px}
+    .brand{color:var(--fg);font-weight:700;text-decoration:none;font-size:18px;letter-spacing:.3px}
+    .nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+    .nav a{color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:8px;transition:color .15s, background .15s}
+    .nav a:hover{color:var(--fg);background:#1c1c1c}
+    .nav a.active{color:var(--active);background:#1c1c1c}
+    body{scroll-padding-top:64px} /* prevents anchor links from hiding under sticky header */
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
+    h1, h2 { color: #222; }
+    p { line-height: 1.6; color: #444; }
+    .screenshot { max-width: 100%; margin: 20px 0; border-radius: 8px; }
+    a { color: #007acc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<script>
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav a').forEach(a=>{
+    const target = a.getAttribute('href').split('#')[0];
+    if ((here === '' && target === 'index.html') || here === target) a.classList.add('active');
+    if (a.getAttribute('href') === '#contact' && here === 'index.html') a.classList.add('active'); // optional
+  });
+</script>
+  <body>
+  <header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Ty Spanbauer</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="automation.html">Automation</a>
+      <a href="summarizer.html">Summarizer</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+  <h1>Automation Workflow Project</h1>
+  <p>
+    This project demonstrates an automated workflow using Zapier/n8n and AI. 
+    It takes a form submission, logs it in Google Sheets, sends a Slack alert, 
+    and generates a personalized email draft with OpenAI.
+  </p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Form submission capture</li>
+    <li>Google Sheets integration</li>
+    <li>Slack notification</li>
+    <li>AI-generated follow-up email</li>
+  </ul>
+
+  <h2>Screenshots</h2>
+  <img src="images/automation-demo.png" alt="Automation Workflow Demo" class="screenshot">
+
+  <h2>Links</h2>
+  <p>GitHub Repo: <a href="https://github.com/tymspanbauer/n8n" target="_blank">View Code</a></p>
+  <p><a href="index.html">← Back to Portfolio</a></p>
+</body>
+</html>
