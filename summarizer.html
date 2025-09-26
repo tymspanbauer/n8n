@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Document Summarizer | Ty Spanbauer</title>
   <style>
   :root { --bg:#111; --fg:#fff; --muted:#aaa; --active:#76c7ff; }
   .site-header{position:sticky;top:0;z-index:999;background:var(--bg);border-bottom:1px solid #222}
@@ -11,9 +14,6 @@
   .nav a:hover{color:var(--fg);background:#1c1c1c}
   .nav a.active{color:var(--active);background:#1c1c1c}
   body{scroll-padding-top:64px} /* prevents anchor links from hiding under sticky header */
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Document Summarizer | Ty Spanbauer</title>
     body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
     h1, h2 { color: #222; }
     p { line-height: 1.6; color: #444; }
@@ -22,7 +22,7 @@
     a:hover { text-decoration: underline; }
   </style>
 </head>
-  <script>
+<script>
   const here = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav a').forEach(a=>{
     const target = a.getAttribute('href').split('#')[0];
@@ -30,7 +30,7 @@
     if (a.getAttribute('href') === '#contact' && here === 'index.html') a.classList.add('active'); // optional
   });
 </script>
-<body>
+  <body>
   <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html">Ty Spanbauer</a>
