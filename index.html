@@ -1,106 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ty Spanbauer | Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: #222; color: #fff; padding: 20px; text-align: center; }
-    header h1 { margin: 0; }
-    nav { margin-top: 10px; }
-    nav a { color: #fff; margin: 0 10px; text-decoration: none; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    h2 { color: #222; margin-bottom: 10px; }
-    p { line-height: 1.6; }
-    .project { background: #fff; margin: 20px 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .project h3 { margin-top: 0; }
-    footer { background: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 40px; }
-    footer a { color: #fff; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    :root { --bg:#111; --fg:#fff; --muted:#888; --active:#76c7ff; --card:#ffffff; --ink:#333; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7f9;color:var(--ink);scroll-padding-top:72px}
+    /* header */
+    .site-header{position:sticky;top:0;z-index:999;background:var(--bg);border-bottom:1px solid #202020}
+    .wrap{max-width:1040px;margin:auto;padding:12px 16px;display:flex;gap:20px;align-items:center}
+    .brand{color:var(--fg);font-weight:700;text-decoration:none;font-size:18px;letter-spacing:.2px}
+    nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+    nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px}
+    nav a:hover{color:var(--fg);background:#1c1c1c}
+    nav a.active{color:var(--active);background:#1c1c1c}
+    /* hero */
+    .hero{max-width:1040px;margin:28px auto 8px;padding:0 16px}
+    .hero h1{margin:0 0 6px;font-size:32px}
+    .hero p{margin:0;color:#555}
+    /* grid */
+    .grid{max-width:1040px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid #e6e8eb;border-radius:14px;padding:18px;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+    .card h3{margin:0 0 8px}
+    .card p{margin:0 0 12px;color:#555}
+    .btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
+    .btn:hover{opacity:.95}
+    /* sections */
+    .section{max-width:1040px;margin:28px auto;padding:0 16px}
+    ul.tags{list-style:none;padding:0;margin:8px 0 0;display:flex;gap:8px;flex-wrap:wrap}
+    ul.tags li{padding:6px 10px;background:#eef2f6;border-radius:999px;font-size:13px;color:#444;border:1px solid #e0e6ee}
+    footer{max-width:1040px;margin:40px auto 28px;padding:0 16px;color:#777;font-size:14px}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ty Spanbauer</h1>
-    <p>Analytics | Automation | AI Workflows</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Ty Spanbauer</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="automation.html">Automation</a>
+        <a href="summarizer.html">Summarizer</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="Resume.html">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">Ty Spanbauer</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="automation.html">Automation</a>
-      <a href="summarizer.html">Summarizer</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="resume.html">Resume</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m Ty Spanbauer, a data-driven problem solver with a passion for automation, 
-      analytics, and building scalable systems. This portfolio highlights my 
-      journey through data analytics, workflow automation, and SaaS-focused projects.
-    </p>
+
+  <section class="hero">
+    <h1>Analytics • Automation • AI Workflows</h1>
+    <p>I build practical systems that connect data, automate processes, and deliver insights.</p>
   </section>
 
-  <section id="skills">
+  <section class="grid">
+    <div class="card">
+      <h3>Automation Workflow</h3>
+      <p>Form → Google Sheets → Slack alert → AI-generated email draft using OpenAI.</p>
+      <a class="btn" href="automation.html">View project</a>
+    </div>
+    <div class="card">
+      <h3>AI Document Summarizer</h3>
+      <p>Upload a PDF, extract text, generate concise key points, and deliver to Sheets/Slack/Email.</p>
+      <a class="btn" href="summarizer.html">View project</a>
+    </div>
+    <div class="card">
+      <h3>Dashboard Reporting</h3>
+      <p>Live data to interactive dashboards with revenue tracking and churn alerts.</p>
+      <a class="btn" href="dashboard.html">View project</a>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
     <h2>Skills</h2>
-    <ul>
-      <li>Data Analysis: SQL, Python, R, Tableau, Power BI</li>
-      <li>Automation: Zapier, n8n, API Integrations</li>
-      <li>Cloud & Tools: AWS, GitHub, Docker</li>
-      <li>Web: HTML, CSS, JavaScript (beginner-level)</li>
+    <ul class="tags">
+      <li>SQL</li><li>Python</li><li>Power BI</li><li>Tableau</li>
+      <li>n8n</li><li>Zapier</li><li>API Integrations</li><li>OpenAI</li>
+      <li>GitHub Pages</li><li>Docker</li>
     </ul>
   </section>
 
-  <section id="projects">
-  <h2>Projects</h2>
-
-  <div class="project">
-    <h3><a href="automation.html">Automation Workflow</a></h3>
-    <p>
-      Form submission → Google Sheets → Slack alert + AI-generated email draft. 
-      <em>(Click for details)</em>
-    </p>
-  </div>
-
-  <div class="project">
-    <h3><a href="summarizer.html">AI Document Summarizer</a></h3>
-    <p>
-      Upload a PDF → AI extracts key insights → saves data → sends summary via Slack/Email.  
-      <em>(Click for details)</em>
-    </p>
-  </div>
-
-  <div class="project">
-    <h3><a href="dashboard.html">Dashboard Reporting</a></h3>
-    <p>
-      Live Power BI/Excel dashboards with revenue tracking + churn alerts.  
-      <em>(Click for details)</em>
-    </p>
-  </div>
-</section>
-
-  <section id="contact">
+  <section class="section" id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:tymspanbauer@gmail.com">tymspanbauer@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/tymspanbauer/" target="_blank">linkedin.com/in/tymspanbauer</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/tyspanbauer" target="_blank">linkedin.com/in/tyspanbauer</a></p>
     <p>GitHub: <a href="https://github.com/tymspanbauer" target="_blank">github.com/tymspanbauer</a></p>
   </section>
 
-  <footer>
-    <p>© 2025 Ty Spanbauer | Built with GitHub Pages</p>
-  </footer>
+  <footer>© 2025 Ty Spanbauer</footer>
+
+  <script>
+    const here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a=>{
+      const target = a.getAttribute('href').split('#')[0];
+      if (here === target) a.classList.add('active');
+      if (a.getAttribute('href') === '#contact' && here==='index.html') a.classList.add('active');
+    });
+  </script>
 </body>
 </html>
