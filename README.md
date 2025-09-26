@@ -19,13 +19,3 @@ You can view my portfolio at:
 - **AI Document Summarizer** – Upload a PDF → AI extracts key points → sends summary via Slack/Email.
 - **Dashboard Reporting** – Live dashboards for revenue tracking and churn alerts.
 
-## Repo Structure
-/ (repo root)
-│ index.html → Homepage
-│ automation.html → Automation Workflow project page
-│ summarizer.html → AI Document Summarizer project page
-│ dashboard.html → Dashboard Reporting project page
-│
-├─ images/ → Screenshots and project visuals
-└─ partials/ → Reusable HTML snippets (nav bar, etc.)
----
