@@ -41,19 +41,25 @@
   <main>
   <h1>Resume</h1>
 
-  <div class="actions">
-    <a class="btn" href="/assets/ty_spanbauer_resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
-    <a class="btn" href="/assets/ty_spanbauer_resume.pdf" download>Download PDF</a>
-  </div>
+ <div class="actions">
+  <a class="btn" href="/assets/ty_spanbauer_resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+  <a class="btn" href="/assets/ty_spanbauer_resume.pdf" download>Download PDF</a>
+</div>
 
-  <!-- Reliable embed using Google Docs viewer -->
+<!-- Try native PDF embed first -->
+<object data="/assets/ty_spanbauer_resume.pdf#view=FitH"
+        type="application/pdf"
+        class="frame">
+  <!-- Fallback to PDF.js viewer if native embed blocked -->
   <iframe class="frame"
-          src="https://docs.google.com/gview?embedded=1&url=https://tyspanbauer.com/assets/ty_spanbauer_resume.pdf"
-          title="Ty Spanbauer Resume"></iframe>
+          src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Ftyspanbauer.com%2Fassets%2Fty_spanbauer_resume.pdf"
+          title="Ty Spanbauer Resume (PDF viewer)"></iframe>
+</object>
 
-  <p class="note">If the PDF doesn’t load, 
-    <a href="/assets/ty_spanbauer_resume.pdf" target="_blank" rel="noopener">click here</a>.
-  </p>
+<p class="note">
+  If the viewer doesn’t load, <a href="/assets/ty_spanbauer_resume.pdf" target="_blank" rel="noopener">open the PDF directly</a>.
+</p>
+
 </main>
 
 
