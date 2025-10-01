@@ -38,29 +38,45 @@
 </header>
 
 
-  <main>
+  <!-- Resume.html -->
+<main class="wrap">
   <h1>Resume</h1>
 
- <div class="actions">
-  <a class="btn" href="/assets/ty_spanbauer_resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
-  <a class="btn" href="/assets/ty_spanbauer_resume.pdf" download>Download PDF</a>
-</div>
+  <div class="actions">
+    <a href="/assets/ty_spanbauer.pdf" target="_blank" rel="noopener">Open in new tab</a>
+    <a href="/assets/ty_spanbauer.pdf" download>Download PDF</a>
+  </div>
 
-<!-- Try native PDF embed first -->
-<object data="/assets/ty_spanbauer_resume.pdf#view=FitH"
-        type="application/pdf"
-        class="frame">
-  <!-- Fallback to PDF.js viewer if native embed blocked -->
-  <iframe class="frame"
-          src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Ftyspanbauer.com%2Fassets%2Fty_spanbauer_resume.pdf"
-          title="Ty Spanbauer Resume (PDF viewer)"></iframe>
-</object>
+  <div class="pdf-container">
+    <iframe
+      class="pdf-frame"
+      src="/assets/ty_spanbauer.pdf#zoom=page-width&view=FitH"
+      title="Ty Spanbauer – Resume"
+    ></iframe>
+  </div>
 
-<p class="note">
-  If the viewer doesn’t load, <a href="/assets/ty_spanbauer_resume.pdf" target="_blank" rel="noopener">open the PDF directly</a>.
-</p>
-
+  <p class="fallback">
+    If the viewer doesn’t load, <a href="/assets/ty_spanbauer.pdf">open the PDF directly</a>.
+  </p>
 </main>
+
+<style>
+/* make the viewer big and readable */
+.wrap { max-width: 1040px; margin: 0 auto; padding: 16px; }
+.actions { display: flex; gap: 12px; margin: 8px 0 16px; }
+.pdf-container { display: grid; place-items: center; }
+.pdf-frame {
+  width: min(100%, 1000px);   /* full width, but capped for readability */
+  height: min(85vh, 1200px);  /* tall enough to read */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.fallback { margin-top: 10px; color: #666; }
+@media (max-width: 640px) {
+  .pdf-frame { height: 75vh; }
+}
+</style>
 
 
   <script>
