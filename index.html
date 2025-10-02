@@ -14,7 +14,7 @@
     .brand{color:var(--fg);font-weight:700;text-decoration:none;font-size:18px;letter-spacing:.2px}
     nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
     nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px}
-    nav a:hover{color:var(--fg);background:#1c1c1c}
+    nav a:hover, nav a:focus-visible{color:var(--fg);background:#1c1c1c;outline:none}
     nav a.active{color:var(--active);background:#1c1c1c}
     /* hero */
     .hero{max-width:1040px;margin:28px auto 8px;padding:0 16px}
@@ -26,9 +26,11 @@
     .card h3{margin:0 0 8px}
     .card p{margin:0 0 12px;color:#555}
     .btn{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px}
-    .btn:hover{opacity:.95}
+    .btn:hover,.btn:focus-visible{opacity:.95;outline:none}
     /* sections */
     .section{max-width:1040px;margin:28px auto;padding:0 16px}
+    .section h2{margin:0 0 10px}
+    .muted{color:#555;margin-top:0}
     ul.tags{list-style:none;padding:0;margin:8px 0 0;display:flex;gap:8px;flex-wrap:wrap}
     ul.tags li{padding:6px 10px;background:#eef2f6;border-radius:999px;font-size:13px;color:#444;border:1px solid #e0e6ee}
     footer{max-width:1040px;margin:40px auto 28px;padding:0 16px;color:#777;font-size:14px}
@@ -36,42 +38,58 @@
 </head>
 <body>
   <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">Ty Spanbauer</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="automation.html">Project Placeholder 1</a>
-      <a href="summarizer.html">Project Placeholder 2</a>
-      <a href="dashboard.html">Project Placeholder 3</a>
-      <a href="Resume.html">Resume</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+    <div class="wrap">
+      <a class="brand" href="index.html">Ty Spanbauer</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="automation.html">Automation</a>
+        <a href="summarizer.html">Summarizer</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="Resume.html">Resume</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <section class="hero">
     <h1>Analytics • Automation • AI Workflows</h1>
     <p>I build practical systems that connect data, automate processes, and deliver insights.</p>
   </section>
 
-  <section class="grid">
+  <!-- Projects -->
+  <section class="grid" aria-label="Projects">
     <div class="card">
       <h3>Project Placeholder 1</h3>
       <p>Brief description of project goes here. Replace with project later.</p>
-      <a class="btn" href="#">View project</a>
+      <a class="btn" href="automation.html" aria-label="View Automation project">View project</a>
     </div>
     <div class="card">
       <h3>Project Placeholder 2</h3>
       <p>Brief description of project goes here. Replace with project later.</p>
-      <a class="btn" href="#">View project</a>
+      <a class="btn" href="summarizer.html" aria-label="View Summarizer project">View project</a>
     </div>
     <div class="card">
       <h3>Project Placeholder 3</h3>
       <p>Brief description of project goes here. Replace with project later.</p>
-      <a class="btn" href="#">View project</a>
+      <a class="btn" href="dashboard.html" aria-label="View Dashboard project">View project</a>
     </div>
   </section>
 
+  <!-- About (short) -->
+  <section class="section" id="about">
+    <h2>About</h2>
+    <p class="muted">
+    I’m Ty Spanbauer, and I’m beginning my journey into automation and workflow design. 
+    I’ve recently started exploring <strong>n8n</strong> and best practices for building 
+    automations that connect data, streamline tasks, and reduce busywork. My background 
+    is in analytics and problem-solving, and I’m excited to apply those skills to 
+    creating practical systems that save time and deliver insights. This portfolio 
+    is a space to share my progress as I learn and build.
+    </p>
+  </section>
+
+  <!-- Skills -->
   <section class="section" id="skills">
     <h2>Skills</h2>
     <ul class="tags">
@@ -81,21 +99,26 @@
     </ul>
   </section>
 
+  <!-- Contact -->
   <section class="section" id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:tymspanbauer@gmail.com">tymspanbauer@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/tymspanbauer" target="_blank">linkedin.com/in/tymspanbauer</a></p>
-    <p>GitHub: <a href="https://github.com/tymspanbauer" target="_blank">github.com/tymspanbauer</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/tymspanbauer" target="_blank" rel="noopener">linkedin.com/in/tymspanbauer</a></p>
+    <p>GitHub: <a href="https://github.com/tymspanbauer" target="_blank" rel="noopener">github.com/tymspanbauer</a></p>
   </section>
 
   <footer>© 2025 Ty Spanbauer</footer>
 
   <script>
+    // Highlight current nav item (supports anchors)
     const here = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(a=>{
-      const target = a.getAttribute('href').split('#')[0];
-      if (here === target) a.classList.add('active');
-      if (a.getAttribute('href') === '#contact' && here==='index.html') a.classList.add('active');
+      const href = a.getAttribute('href');
+      const target = href.split('#')[0];
+      const isSameDoc = (here === target) || (href.startsWith('#') && here === 'index.html');
+      const isActiveAnchor = href.startsWith('#') && location.hash === href;
+      if (isSameDoc && (!href.startsWith('#') || isActiveAnchor)) a.classList.add('active');
+      if (href === '#contact' && here==='index.html' && location.hash==='#contact') a.classList.add('active');
     });
   </script>
 </body>
